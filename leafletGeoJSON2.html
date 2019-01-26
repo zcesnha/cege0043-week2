@@ -9,10 +9,6 @@ integrity="sha512-
 mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA==
 "
 crossorigin=""></script>
-<!-- the following links incorporate the CSS required for custom icon creation -->
-<link rel="stylesheet" href="ionicons.min.css">
-<link rel="stylesheet" href="leaflet.awesome-markers.css">
-<script src="leaflet.awesome-markers.js"></script>
 <!-- the following CSS is used to set the size of the Map -->
 <style type="text/css">
 4 of 7
@@ -41,32 +37,11 @@ var geojsonFeature = {
 },
 "geometry": {
 "type": "Point",
-"coordinates": [ -0.133761, 51.524468]
+"coordinates": [-0.118092, 51.509865]
 }
 };
-// create custom icon feature 
-var testMarkerPink = L.AwesomeMarkers.icon({
-icon: 'play',
-markerColor: 'pink'
-});
-//
-L.geoJSON(geojsonFeature).addTo(mymap).bindPopup("<b>"+geojsonFeature.properties.name+" "+geojsonFeature.properties.popupContent+"<b>"); 
 // and add it to the map
-L.geoJSON(geojsonFeature, {pointToLayer: function (feature, latlng) {return L.marker(latlng, {icon:testMarkerPink});
-}
-}).addTo(mymap).bindPopup("<b>"+geojsonFeature.properties.name+" "+geojsonFeature.properties.popupContent+"<b>");
-// create a custom popup
-var popup = L.popup();
-// create an event detector to wait for the user's click event and then use the popup to show them where they clicked
-// note that you don't need to do any complicated maths to convert screen coordinates to real world coordiantes - the Leaflet API does this for you
-function onMapClick(e) {
-popup
-.setLatLng(e.latlng)
-.setContent("You clicked the map at " + e.latlng.toString())
-.openOn(mymap);
-}
-// now add the click event detector to the map
-mymap.on('click', onMapClick);
+L.geoJSON(geojsonFeature).addTo(mymap).bindPopup("<b>"+geojsonFeature.properties.name+" "+geojsonFeature.properties.popupContent+"<b>");
 </script>
 </body>
 </html>

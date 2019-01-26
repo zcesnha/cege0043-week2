@@ -32,7 +32,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>,' +'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 id: 'mapbox.streets'
 }).addTo(mymap);
-// create a geoJSON feature -
+// create a geoJSON feature 
 var geojsonFeature = {
 "type": "Feature",
 "properties": {
@@ -48,11 +48,11 @@ var geojsonFeature = {
 var testMarkerPink = L.AwesomeMarkers.icon({
 icon: 'play',
 markerColor: 'pink'
-});
-//
-L.geoJSON(geojsonFeature).addTo(mymap).bindPopup("<b>"+geojsonFeature.properties.name+" "+geojsonFeature.properties.popupContent+"<b>"); 
+}); 
 // and add it to the map
-L.geoJSON(geojsonFeature, {pointToLayer: function (feature, latlng) {return L.marker(latlng, {icon:testMarkerPink});
+L.geoJSON(geojsonFeature, {
+pointToLayer: function (feature, latlng) {
+return L.marker(latlng, {icon:testMarkerPink});
 }
 }).addTo(mymap).bindPopup("<b>"+geojsonFeature.properties.name+" "+geojsonFeature.properties.popupContent+"<b>");
 // create a custom popup

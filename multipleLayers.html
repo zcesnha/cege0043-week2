@@ -21,6 +21,13 @@ alert("load the data here");
 }
 </script>
 
+<!-- removeData() method for Button -->
+<script>
+function removeEarthquakeData() {
+alert("remove the earthquake data here");
+}
+</script>
+
 <!--code to load data when button is clicked-->
 <script >
 function loadEarthquakeData() {
@@ -81,6 +88,10 @@ id: 'mapbox.streets'
 <!-- Creation of load button underneath map -->
 <button id="loadData" name="loadData" onclick="loadEarthquakeData()">Click here to load the
 data </button>
+
+<!-- Creation of remove data button underneath map -->
+<button id="removeEarthquakeData" name="removeEarthquakeData"
+onclick="removeEarthquakeData()">Click here to remove the Earthquake data </button>
 
 </body>
 </html>
